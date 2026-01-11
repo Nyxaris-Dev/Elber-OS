@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Загрузка системы</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-lines">
+        <div class="line diagonal"></div>
+        <div class="line diagonal"></div>
+    </div>
+    
+    <div class="container">
+        <div class="loader-container">
+            <!-- Круговой лоадер -->
+            <div class="circle-loader"></div>
+            
+            <!-- Прогресс бар -->
+            <div class="progress-container">
+                <div class="progress-label">
+                    <span>ЗАГРУЗКА</span>
+                    <span id="progressText">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+            
+            <!-- Точечный индикатор -->
+            <div class="dots-container">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            
+            <!-- Индикатор статуса -->
+            <div class="status-indicator">
+                <div class="status-light"></div>
+                <div class="status-text">ИНИЦИАЛИЗАЦИЯ</div>
+            </div>
+        </div>
+        
+        <!-- Минимальная информация -->
+        <div class="info">
+            <div>ELBER LOADER</div>
+            <div style="margin-top: 4px; font-size: 9px;">VER 1.0</div>
+        </div>
+    </div>
+    
+    <script src="renderer.js"></script>
+</body>
+</html>

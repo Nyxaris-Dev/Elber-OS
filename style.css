@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: #000000;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .loader-container {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+  
+  /* Круговой лоадер */
+  .circle-loader {
+    width: 120px;
+    height: 120px;
+    position: relative;
+  }
+  
+  .circle-loader::before,
+  .circle-loader::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+  }
+  
+  .circle-loader::before {
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .circle-loader::after {
+    width: 100%;
+    height: 100%;
+    border: 2px solid transparent;
+    border-top-color: #ffffff;
+    border-right-color: #ffffff;
+    animation: rotate 1.5s linear infinite;
+  }
+  
+  @keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Прогресс бар */
+  .progress-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+  
+  .progress-bar {
+    width: 100%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+  }
+  
+  .progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #ffffff;
+    transition: width 0.3s ease;
+  }
+  
+  /* Точечный индикатор */
+  .dots-container {
+    display: flex;
+    gap: 8px;
+    margin-top: 20px;
+  }
+  
+  .dot {
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+  }
+  
+  .dot.active {
+    background: #ffffff;
+    animation: pulse 1s infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  
+  /* Минимальная информация */
+  .info {
+    position: absolute;
+    bottom: 40px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  /* Простой индикатор состояния */
+  .status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 30px;
+  }
+  
+  .status-light {
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+  }
+  
+  .status-light.active {
+    background: #ffffff;
+    box-shadow: 0 0 10px #ffffff;
+  }
+  
+  .status-text {
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Фоновые линии */
+  .bg-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.05;
+  }
+  
+  .line {
+    position: absolute;
+    background: #ffffff;
+  }
+  
+  .horizontal {
+    width: 100%;
+    height: 1px;
+    top: 50%;
+  }
+  
+  .vertical {
+    width: 1px;
+    height: 100%;
+    left: 50%;
+  }
+  
+  .diagonal {
+    width: 1px;
+    height: 140%;
+    background: linear-gradient(to bottom, transparent, #ffffff, transparent);
+    transform: rotate(45deg);
+    left: 30%;
+    top: -20%;
+  }
+  
+  .diagonal:nth-child(3) {
+    transform: rotate(-45deg);
+    left: 70%;
+  }
