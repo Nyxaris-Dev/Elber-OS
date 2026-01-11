@@ -1,31 +1,33 @@
-name: Build Windows EXE
-on: [push, workflow_dispatch]
+name: Build EXE
+on: [workflow_dispatch]
 
 jobs:
-  build-windows:
+  build:
     runs-on: windows-latest
     
     steps:
-    - name: Checkout code
+    - name: Checkout
       uses: actions/checkout@v4
-      
-    - name: Setup Node.js
+    
+    - name: Setup Node
       uses: actions/setup-node@v4
       with:
-        node-version: '18'
-        
-    - name: Install dependencies
+        node-version: 18
+    
+    - name: Install
       run: npm install
-      
-    - name: Build Windows executable
+    
+    - name: Build
       run: |
-        npx electron-packager . "ELBEROS" --platform=win32 --arch=x64 --out=release --overwrite --asar
-      
-    - name: List files for debugging
-      run: dir release /s
-      
-    - name: Upload Windows EXE
+        npx electron-packager . "ELBEROS" --platform=win32 --arch=x64 --out=dist --overwrite
+    
+    - name: Package
+      run: |
+        cd dist/ELBEROS-win32-x64
+        7z a -r ../ELBEROS.zip *
+    
+    - name: Upload
       uses: actions/upload-artifact@v4
       with:
-        name: ELBER-OS-Windows
-        path: release/
+        name: ELBEROS-Windows
+        path: dist/ELBEROS.zip
