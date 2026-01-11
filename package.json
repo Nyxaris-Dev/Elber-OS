@@ -43,16 +43,13 @@
             "target": "nsis",
             "arch": ["x64", "ia32"]
           }
-        ],
-        "icon": "build/icon.ico"
+        ]
       },
       "mac": {
-        "target": "dmg",
-        "icon": "build/icon.icns"
+        "target": "dmg"
       },
       "linux": {
-        "target": "AppImage",
-        "icon": "build/icon.png"
+        "target": "AppImage"
       },
       "nsis": {
         "oneClick": false,
