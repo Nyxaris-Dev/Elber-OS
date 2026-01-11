@@ -13,18 +13,19 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '18'
-        cache: 'npm'
         
     - name: Install dependencies
       run: npm install
       
     - name: Build Windows executable
       run: |
-        npx electron-packager . "ELBER OS Loader" --platform=win32 --arch=x64 --out=release --overwrite --asar
+        npx electron-packager . "ELBEROS" --platform=win32 --arch=x64 --out=release --overwrite --asar
+      
+    - name: List files for debugging
+      run: dir release /s
       
     - name: Upload Windows EXE
       uses: actions/upload-artifact@v4
       with:
         name: ELBER-OS-Windows
-        path: release/ELBER\ OS\ Loader-win32-x64/
-        retention-days: 7
+        path: release/
